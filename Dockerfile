@@ -31,6 +31,8 @@ RUN cd /grin/target/release && \
     sed -i -e 's/run_tui = true/run_tui = false/' grin-server.toml && \
     echo "password\npassword" | ./grin --floonet wallet init
 
-RUN cp /grin-miner/grin-miner.toml /grin-miner/target/debug/grin-miner.toml
+RUN cd /grin-miner && \
+    cp grin-miner.toml target/debug/grin-miner.toml && \
+    sed -i -e 's/run_tui = true/run_tui = false/' target/debug/grin-miner.toml
 
 #RUN sed -i -e 's/stratum_server_addr = "127.0.0.1:13416"/stratum_server_addr = "127.0.0.1:13416"/'

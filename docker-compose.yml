@@ -11,7 +11,7 @@ services:
     image: vanities/grin:latest
     network_mode: "host"
     working_dir: /grin/target/release/
-    command: bash -c "echo 'password\npassword' | ./grin --floonet wallet listen"
+    command: bash -c "echo 'password' | ./grin --floonet wallet listen"
 
   grin-miner:
     image: vanities/grin:latest
@@ -21,7 +21,7 @@ services:
 
     
     #ports:
-    #  - "3413:3413"  # api
+    #  - "3413:3413" # api
     #  - "3414:3414"
     #  - "3415:3415" # wallet
     #  - "3416:3416" # stratum
