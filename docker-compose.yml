@@ -1,0 +1,22 @@
+version: "3"
+services:
+
+  grin-node:
+    image: vanities/grin:latest
+    ports:
+      - "3413:3413"
+      - "3414:3414"
+      - "3415:3415"
+      - "3416:3416"
+    working_dir: /grin/target/release/
+    command: ./grin --floonet
+
+  grin-wallet:
+    image: vanities/grin:latest
+    working_dir: /grin/target/release/
+    command: ./grin wallet listen --floonet
+
+  grin-miner:
+    image: vanities/grin:latest
+    working_dir: /grin-miner/target/release/
+    command: ./grin-miner --floonet
