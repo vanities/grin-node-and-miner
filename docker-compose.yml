@@ -9,12 +9,14 @@ services:
 
   grin-wallet:
     image: vanities/grin:latest
-    network_mode: "host"
     working_dir: /grin/target/release/
+    network_mode: "host"
     command: bash -c "echo 'password' | ./grin --floonet wallet listen"
 
   grin-miner:
     image: vanities/grin:latest
+    ports:
+      - "3416:3416" # stratum
     network_mode: "host"
     working_dir: /grin-miner/target/debug/
     command: ./grin-miner --floonet
@@ -24,4 +26,3 @@ services:
     #  - "3413:3413" # api
     #  - "3414:3414"
     #  - "3415:3415" # wallet
-    #  - "3416:3416" # stratum
