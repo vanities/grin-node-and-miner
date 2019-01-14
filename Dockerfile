@@ -33,6 +33,8 @@ RUN cd /grin/target/release && \
 
 RUN cd /grin-miner && \
     cp grin-miner.toml target/debug/grin-miner.toml && \
-    sed -i -e 's/run_tui = true/run_tui = false/' target/debug/grin-miner.toml
-
-#RUN sed -i -e 's/stratum_server_addr = "127.0.0.1:13416"/stratum_server_addr = "127.0.0.1:13416"/'
+    sed -i -e 's/run_tui = true/run_tui = false/' target/debug/grin-miner.toml && \
+    sed -i -e 's/stratum_server_addr = "127.0.0.1:13416"/stratum_server_addr = "us-east-stratum.grinmint.com:4416"/' target/debug/grin-miner.toml && \
+    sed -i -e 's/#stratum_server_password = "x"/stratum_server_password = "some-password"/' target/debug/grin-miner.toml && \
+    sed -i -e 's/stratum_server_tls_enabled = false/stratum_server_tls_enabled = true/' target/debug/grin-miner.toml && \
+    sed -i -e 's/#stratum_server_login = "http:\/\/192.168.1.100:13415"/stratum_server_login = "mischkeaa+someuser@gmail.com\/vanities"/' target/debug/grin-miner.toml
