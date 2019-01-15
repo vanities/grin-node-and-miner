@@ -43,6 +43,19 @@ stratum_server_password = "some-password"
 # whether tls is enabled for the stratum server
 stratum_server_tls_enabled = true
 
+### DEFAULTS
+# listening grin stratum server url
+#stratum_server_addr = "127.0.0.1:13416"
+
+# login for the stratum server (if required)
+#stratum_server_login = "http://192.168.1.100:13415"
+
+# password for the stratum server (if required)
+#stratum_server_password = "x"
+
+# whether tls is enabled for the stratum server
+#stratum_server_tls_enabled = false
+
 
 # mean OpenCL supports both NVidia and AMD
 # to install run ./install_ocl_plugins.sh script
@@ -81,3 +94,10 @@ plugin_name = "ocl_cuckaroo"
 [mining.miner_plugin_config.parameters]
 platform = 0
 device = 5
+
+# The fastest cpu algorithm, but consumes the most memory
+
+#[[mining.miner_plugin_config]]
+#plugin_name = "cuckaroo_cpu_compat_29"
+#[mining.miner_plugin_config.parameters]
+#nthreads = 1
