@@ -11,7 +11,7 @@ build:
 		--file docker-compose.yml \
 		build
 
-release: image copy_into_cli
+release: image 
 	docker push $(IMAGE_NAME):$(IMAGE_VERSION)
 
 # janitor's closet
