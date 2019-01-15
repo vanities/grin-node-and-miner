@@ -29,6 +29,8 @@ ENV AMDAPPSDKROOT=/opt/amdgpu-pro/
 RUN wget --referer=http://support.amd.com https://www2.ati.com/drivers/linux/ubuntu/amdgpu-pro-17.40-492261.tar.xz \
     && tar -xJvf amdgpu-pro-*.tar.xz && cd amdgpu-pro-17.40-492261/ && ./amdgpu-pro-install -y 
 
+RUN ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so
+
 RUN apt install rocm-amdgpu-pro \
                 clinfo -y
 
@@ -43,7 +45,7 @@ RUN git clone https://github.com/mimblewimble/grin.git && \
 RUN git clone https://github.com/mimblewimble/grin-miner.git && \
               cd grin-miner && \
               git submodule update --init && \
-              ~/.cargo/bin/cargo build
+              ~/.cargo/bin/cargo build --features opencl
 
 
 RUN cd /grin/target/release && \
@@ -61,6 +63,5 @@ RUN cd /grin-miner && \
     sed -i -e 's/#stratum_server_login = "http:\/\/192.168.1.100:13415"/stratum_server_login = "mischkeaa+someuser@gmail.com\/vanities"/' target/debug/grin-miner.toml
 
 
-RUN ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so && \
-    cd /grin-miner/ocl_cuckaroo/ && ~/.cargo/bin/cargo build --release && \
+RUN cd /grin-miner/ocl_cuckaroo/ && ~/.cargo/bin/cargo build --release && \
     cp /grin-miner/target/release/libocl_cuckaroo.so /grin-miner/target/debug/plugins/libocl_cuckaroo.cuckooplugin
