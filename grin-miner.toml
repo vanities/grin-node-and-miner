@@ -126,14 +126,19 @@ nthreads = 1
 
 # mean OpenCL supports both NVidia and AMD
 # to install run ./install_ocl_plugins.sh script
-#[[mining.miner_plugin_config]]
-#plugin_name = "ocl_cuckaroo"
-#[mining.miner_plugin_config.parameters]
+[[mining.miner_plugin_config]]
+plugin_name = "ocl_cuckaroo"
+[mining.miner_plugin_config.parameters]
 # 0 for default, 1 for AMD, 2 for NVidia, specify if you have
 # cards from both vendors
-#platform = 0
+platform = 0
 # ID withing the platform
-#device = 0
+device = 0
+device = 1
+device = 2
+device = 3
+device = 4
+device = 5
 
 ###############################################################
 ### CUCKATOO (i.e. ASIC-Friendly) MINER PLUGIN CONFIGURATION ##
