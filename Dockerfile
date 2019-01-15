@@ -64,4 +64,4 @@ RUN cd /grin-miner && \
 
 
 RUN cd /grin-miner/ocl_cuckaroo/ && ~/.cargo/bin/cargo build --release && \
-    cp /grin-miner/target/release/libocl_cuckaroo.so /grin-miner/target/debug/plugins/libocl_cuckaroo.cuckooplugin
+    cp /grin-miner/target/release/libocl_cuckaroo.so /grin-miner/target/debug/plugins/ocl_cuckaroo.cuckooplugin
