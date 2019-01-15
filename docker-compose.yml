@@ -17,10 +17,7 @@ services:
     image: vanities/grin:latest
     volumes:
       - "./grin-miner.toml:/grin-miner/target/debug/grin-miner.toml"
-    ports:
-      - "3416:3416" # stratum
-    volumes:
-      - /dev/hugepages:/dev/hugepages
+      - "/dev/hugepages:/dev/hugepages"
     devices:
       # AMD GPU DEVICE passed in so that we can mine
       - /dev/dri:/dev/dri
@@ -28,9 +25,3 @@ services:
     network_mode: "host"
     working_dir: /grin-miner/target/debug/
     command: ./grin-miner --floonet
-
-    
-    #ports:
-    #  - "3413:3413" # api
-    #  - "3414:3414"
-    #  - "3415:3415" # wallet
