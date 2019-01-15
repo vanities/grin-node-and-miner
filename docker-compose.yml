@@ -5,23 +5,23 @@ services:
     image: vanities/grin:latest
     working_dir: /grin/target/release/
     network_mode: "host"
-    command: ./grin --floonet
+    command: ./grin
 
   grin-wallet:
     image: vanities/grin:latest
     working_dir: /grin/target/release/
     network_mode: "host"
-    command: bash -c "echo 'password' | ./grin --floonet wallet listen"
+    command: bash -c "echo 'password' | ./grin wallet listen"
 
   grin-miner:
     image: vanities/grin:latest
     volumes:
-      - "./grin-miner.toml:/grin-miner/target/debug/grin-miner.toml"
+      - "./grin-miner.toml:/grin-miner/grin-miner.toml"
       - "/dev/hugepages:/dev/hugepages"
     devices:
       # AMD GPU DEVICE passed in so that we can mine
       - /dev/dri:/dev/dri
       - /dev/mem:/dev/mem
     network_mode: "host"
-    working_dir: /grin-miner/target/debug/
-    command: ./grin-miner --floonet
+    working_dir: /grin-miner
+    command: ./grin-miner
