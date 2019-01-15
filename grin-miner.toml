@@ -129,15 +129,33 @@ nthreads = 1
 [[mining.miner_plugin_config]]
 plugin_name = "ocl_cuckaroo"
 [mining.miner_plugin_config.parameters]
-# 0 for default, 1 for AMD, 2 for NVidia, specify if you have
-# cards from both vendors
 platform = 0
-# ID withing the platform
 device = 0
+
+[[mining.miner_plugin_config]]
+plugin_name = "ocl_cuckaroo"
+[mining.miner_plugin_config.parameters]
+platform = 0
 device = 1
+
+[[mining.miner_plugin_config]]
+plugin_name = "ocl_cuckaroo"
+[mining.miner_plugin_config.parameters]
 device = 2
+
+[[mining.miner_plugin_config]]
+plugin_name = "ocl_cuckaroo"
+[mining.miner_plugin_config.parameters]
 device = 3
+
+[[mining.miner_plugin_config]]
+plugin_name = "ocl_cuckaroo"
+[mining.miner_plugin_config.parameters]
 device = 4
+
+[[mining.miner_plugin_config]]
+plugin_name = "ocl_cuckaroo"
+[mining.miner_plugin_config.parameters]
 device = 5
 
 ###############################################################
