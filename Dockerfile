@@ -39,4 +39,4 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so
 RUN apt install rocm-amdgpu-pro \
                 clinfo -y
 
-RUN wget https://github.com/mimblewimble/grin-miner/releases/download/v1.0.0/grin-miner-v1.0.0-479967147-linux-amd64.tgz && tar xvf grin-miner-v1.0.0-479967147-linux-amd64.tgz && mv grin-miner-v1.0.0 grin-miner
+RUN wget https://github.com/mimblewimble/grin-miner/releases/download/v1.0.2/grin-miner-v1.0.2-480780314-linux-amd64.tgz && tar xvf grin-miner-v1.0.2-480780314-linux-amd64.tgz && mv grin-miner-v1.0.2 grin-miner
